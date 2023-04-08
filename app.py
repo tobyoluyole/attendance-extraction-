@@ -42,3 +42,4 @@ for i, addr in enumerate(devices):
 workbook.save("bluetooth_addresses.xlsx")
 
 print("Found {} Bluetooth MAC addresses. Saved to 'bluetooth_addresses.xlsx'".format(len(devices)))
+
