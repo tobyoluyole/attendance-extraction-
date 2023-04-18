@@ -1,3 +1,22 @@
+import bluetooth
+import openpyxl
+
+# Scan for nearby Bluetooth devices
+devices = bluetooth.discover_devices(duration=30, flush_cache=True, lookup_names=False, lookup_class=False)
+
+# Create a new Excel workbook and worksheet
+workbook = openpyxl.Workbook()
+worksheet = workbook.active
+worksheet.column_dimensions['A'].width = 20
+
+# Write Bluetooth MAC addresses to worksheet
+for i, addr in enumerate(devices):
+    worksheet.cell(row=i+1, column=1, value=addr)
+
+# Save Excel workbook
+workbook.save("bluetooth_addresses.xlsx")
+
+print("Found {} Bluetooth MAC addresses. Saved to 'bluetooth_addresses.xlsx'".format(len(devices)))
 
 import pandas as pd
 import sqlite3
@@ -91,6 +110,7 @@ with smtplib.SMTP("smtp.gmail.com", 587) as server:
     text = message.as_string()
     server.sendmail(sender_email, receiver_email.split(','), text)
 
+print("Attendance report sent sucessfully")
 
 
 
