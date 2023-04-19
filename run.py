@@ -78,7 +78,7 @@ from email.mime.application import MIMEApplication
 
 # Set up the email addresses and password
 sender_email = "isktobi@gmail.com"
-sender_password = "gusunnkswqqswdbn"
+sender_password = ""
 receiver_email = "tobioluyole@gmail.com, oluyolevincent@gmail.com"
 
 # Create a message object instance
